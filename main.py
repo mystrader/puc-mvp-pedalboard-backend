@@ -149,13 +149,24 @@ def openapi_json():
         },
         "servers": [
             {
-                "url": "http://localhost:5000",
+                "url": "http://localhost:5002",
                 "description": "Servidor de desenvolvimento"
+            }
+        ],
+        "tags": [
+            {
+                "name": "Pedalboards",
+                "description": "Operações relacionadas aos pedalboards"
+            },
+            {
+                "name": "Pedais",
+                "description": "Operações relacionadas aos pedais"
             }
         ],
         "paths": {
             "/api/pedalboards": {
                 "get": {
+                    "tags": ["Pedalboards"],
                     "summary": "Listar pedalboards",
                     "responses": {
                         "200": {
@@ -172,6 +183,7 @@ def openapi_json():
                     }
                 },
                 "post": {
+                    "tags": ["Pedalboards"],
                     "summary": "Criar pedalboard",
                     "requestBody": {
                         "required": True,
@@ -195,6 +207,7 @@ def openapi_json():
             },
             "/api/pedalboards/{pedalboard_id}": {
                 "get": {
+                    "tags": ["Pedalboards"],
                     "summary": "Obter pedalboard",
                     "parameters": [
                         {
@@ -216,6 +229,7 @@ def openapi_json():
                     }
                 },
                 "put": {
+                    "tags": ["Pedalboards"],
                     "summary": "Atualizar pedalboard",
                     "parameters": [
                         {
@@ -245,6 +259,7 @@ def openapi_json():
                     }
                 },
                 "delete": {
+                    "tags": ["Pedalboards"],
                     "summary": "Deletar pedalboard",
                     "parameters": [
                         {
@@ -273,6 +288,7 @@ def openapi_json():
             },
             "/api/pedals": {
                 "get": {
+                    "tags": ["Pedais"],
                     "summary": "Listar pedais",
                     "responses": {
                         "200": {
@@ -289,6 +305,7 @@ def openapi_json():
                     }
                 },
                 "post": {
+                    "tags": ["Pedais"],
                     "summary": "Criar pedal",
                     "requestBody": {
                         "required": True,
@@ -312,6 +329,7 @@ def openapi_json():
             },
             "/api/pedals/{pedal_id}": {
                 "get": {
+                    "tags": ["Pedais"],
                     "summary": "Obter pedal",
                     "parameters": [
                         {
@@ -333,6 +351,7 @@ def openapi_json():
                     }
                 },
                 "put": {
+                    "tags": ["Pedais"],
                     "summary": "Atualizar pedal",
                     "parameters": [
                         {
@@ -362,6 +381,7 @@ def openapi_json():
                     }
                 },
                 "delete": {
+                    "tags": ["Pedais"],
                     "summary": "Deletar pedal",
                     "parameters": [
                         {
