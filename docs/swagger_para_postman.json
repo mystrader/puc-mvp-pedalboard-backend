@@ -1,0 +1,440 @@
+{
+"components": {
+"schemas": {
+"Pedal": {
+"properties": {
+"brand": {
+"type": "string"
+},
+"category": {
+"type": "string"
+},
+"created_at": {
+"format": "date-time",
+"type": "string"
+},
+"description": {
+"type": "string"
+},
+"id": {
+"type": "integer"
+},
+"name": {
+"type": "string"
+},
+"pedalboard_id": {
+"type": "integer"
+},
+"updated_at": {
+"format": "date-time",
+"type": "string"
+}
+},
+"type": "object"
+},
+"PedalCreate": {
+"properties": {
+"brand": {
+"type": "string"
+},
+"category": {
+"type": "string"
+},
+"description": {
+"type": "string"
+},
+"name": {
+"type": "string"
+},
+"pedalboard_id": {
+"type": "integer"
+}
+},
+"required": [
+"name",
+"brand",
+"category",
+"pedalboard_id"
+],
+"type": "object"
+},
+"Pedalboard": {
+"properties": {
+"created_at": {
+"format": "date-time",
+"type": "string"
+},
+"description": {
+"type": "string"
+},
+"id": {
+"type": "integer"
+},
+"name": {
+"type": "string"
+},
+"pedals": {
+"items": {
+"$ref": "#/components/schemas/Pedal"
+},
+"type": "array"
+},
+"updated_at": {
+"format": "date-time",
+"type": "string"
+},
+"user_id": {
+"type": "integer"
+}
+},
+"type": "object"
+},
+"PedalboardCreate": {
+"properties": {
+"description": {
+"type": "string"
+},
+"name": {
+"type": "string"
+},
+"user_id": {
+"type": "integer"
+}
+},
+"required": [
+"name",
+"user_id"
+],
+"type": "object"
+}
+}
+},
+"info": {
+"description": "API para gerenciar pedalboards e pedais",
+"title": "Pedalboard API",
+"version": "1.0.0"
+},
+"openapi": "3.0.0",
+"paths": {
+"/api/pedalboards": {
+"get": {
+"responses": {
+"200": {
+"content": {
+"application/json": {
+"schema": {
+"items": {
+"$ref": "#/components/schemas/Pedalboard"
+},
+"type": "array"
+}
+}
+},
+"description": "Lista de pedalboards"
+}
+},
+"summary": "Listar pedalboards",
+"tags": [
+"Pedalboards"
+]
+},
+"post": {
+"requestBody": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/PedalboardCreate"
+}
+}
+},
+"required": true
+},
+"responses": {
+"201": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Pedalboard"
+}
+}
+},
+"description": "Pedalboard criado"
+}
+},
+"summary": "Criar pedalboard",
+"tags": [
+"Pedalboards"
+]
+}
+},
+"/api/pedalboards/{pedalboard_id}": {
+"delete": {
+"parameters": [
+{
+"in": "path",
+"name": "pedalboard_id",
+"required": true,
+"schema": {
+"type": "integer"
+}
+}
+],
+"responses": {
+"200": {
+"content": {
+"application/json": {
+"schema": {
+"properties": {
+"message": {
+"type": "string"
+}
+},
+"type": "object"
+}
+}
+},
+"description": "Pedalboard deletado"
+}
+},
+"summary": "Deletar pedalboard",
+"tags": [
+"Pedalboards"
+]
+},
+"get": {
+"parameters": [
+{
+"in": "path",
+"name": "pedalboard_id",
+"required": true,
+"schema": {
+"type": "integer"
+}
+}
+],
+"responses": {
+"200": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Pedalboard"
+}
+}
+},
+"description": "Pedalboard encontrado"
+}
+},
+"summary": "Obter pedalboard",
+"tags": [
+"Pedalboards"
+]
+},
+"put": {
+"parameters": [
+{
+"in": "path",
+"name": "pedalboard_id",
+"required": true,
+"schema": {
+"type": "integer"
+}
+}
+],
+"requestBody": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/PedalboardCreate"
+}
+}
+},
+"required": true
+},
+"responses": {
+"200": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Pedalboard"
+}
+}
+},
+"description": "Pedalboard atualizado"
+}
+},
+"summary": "Atualizar pedalboard",
+"tags": [
+"Pedalboards"
+]
+}
+},
+"/api/pedals": {
+"get": {
+"responses": {
+"200": {
+"content": {
+"application/json": {
+"schema": {
+"items": {
+"$ref": "#/components/schemas/Pedal"
+},
+"type": "array"
+}
+}
+},
+"description": "Lista de pedais"
+}
+},
+"summary": "Listar pedais",
+"tags": [
+"Pedais"
+]
+},
+"post": {
+"requestBody": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/PedalCreate"
+}
+}
+},
+"required": true
+},
+"responses": {
+"201": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Pedal"
+}
+}
+},
+"description": "Pedal criado"
+}
+},
+"summary": "Criar pedal",
+"tags": [
+"Pedais"
+]
+}
+},
+"/api/pedals/{pedal_id}": {
+"delete": {
+"parameters": [
+{
+"in": "path",
+"name": "pedal_id",
+"required": true,
+"schema": {
+"type": "integer"
+}
+}
+],
+"responses": {
+"200": {
+"content": {
+"application/json": {
+"schema": {
+"properties": {
+"message": {
+"type": "string"
+}
+},
+"type": "object"
+}
+}
+},
+"description": "Pedal deletado"
+}
+},
+"summary": "Deletar pedal",
+"tags": [
+"Pedais"
+]
+},
+"get": {
+"parameters": [
+{
+"in": "path",
+"name": "pedal_id",
+"required": true,
+"schema": {
+"type": "integer"
+}
+}
+],
+"responses": {
+"200": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Pedal"
+}
+}
+},
+"description": "Pedal encontrado"
+}
+},
+"summary": "Obter pedal",
+"tags": [
+"Pedais"
+]
+},
+"put": {
+"parameters": [
+{
+"in": "path",
+"name": "pedal_id",
+"required": true,
+"schema": {
+"type": "integer"
+}
+}
+],
+"requestBody": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/PedalCreate"
+}
+}
+},
+"required": true
+},
+"responses": {
+"200": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Pedal"
+}
+}
+},
+"description": "Pedal atualizado"
+}
+},
+"summary": "Atualizar pedal",
+"tags": [
+"Pedais"
+]
+}
+}
+},
+"servers": [
+{
+"description": "Servidor de desenvolvimento",
+"url": "http://localhost:5002"
+}
+],
+"tags": [
+{
+"description": "Operações relacionadas aos pedalboards",
+"name": "Pedalboards"
+},
+{
+"description": "Operações relacionadas aos pedais",
+"name": "Pedais"
+}
+]
+}
