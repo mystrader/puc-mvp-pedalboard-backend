@@ -2,13 +2,20 @@
 
 Backend da API para cadastro de pedalboards e pedais.
 
+### Link do vídeo de apresentação 
+
+(Link do video de apresentação do projeto)[https://youtu.be/z3Ol0xYJIug] 
+
+
+---
+
 ## Como rodar
 
 ### Opção 1: Scripts automatizados
 
 Use os scripts na pasta `scripts/`:
 
-> RODAR COM BASH 
+> 🔹 PARA O PROFESSOR:  RODAR O SCRIPT ABAIXO NO BASH  PARA RODAR AUTOMATICAMENTE 
 
 ```bash
 # Rodar o projeto (instala dependências e inicia servidor)

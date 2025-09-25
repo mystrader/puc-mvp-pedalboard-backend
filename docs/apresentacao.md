@@ -9,7 +9,7 @@
 
  ```json   
 {
-  "description": "Descrição do meu primeiro board",
+  "description": "Meu Primeiro Board de pedais virtual",
   "name": "Meu primeiro Board de pedais virtual",
   "user_id": 1
 }
@@ -24,9 +24,9 @@
 
  ```json    
 {
-    "name": "Meu novo PedalBoard - modifcado",
+    "name": "Meu Primeiro Board de pedais virtual - modifcado",
     "description": "Exemplo de pedalboard - Marcus Cunha",
-    "user_id": 1
+    "user_id": 2
 }
 ```
 
