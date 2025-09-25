@@ -1,6 +1,6 @@
 <img width="1472" height="376" alt="image" src="https://github.com/user-attachments/assets/8adeb50f-c0ca-4f6c-b89d-4d54a1a136ba" />
 
-
+---
 # Backend - Pedalboard
 
 Backend da API para cadastro de pedalboards e pedais.
